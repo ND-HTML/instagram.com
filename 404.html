@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        if (document.addEventListener) {
+            document.addEventListener("contextmenu", function(e) {
+                e.preventDefault();
+                return false;
+            });
+        } else { //Versões antigas do IE
+            document.attachEvent("oncontextmenu", function(e) {
+                e = e || window.event;
+                e.returnValue = false;
+                return false;
+            });
+        }
+        </script>
+
+<script>
+    // Adiciona a classe 'hidden' ao carregar a página
+    window.onload = function() {
+        document.querySelector('.content').classList.add('hidden');
+    };
+</script>
+
+<style>
+    /*desabilita a seleção no body*/
+    body {
+        -webkit-touch-callout: none; /* iOS Safari */
+          -webkit-user-select: none; /* Chrome/Safari/Opera */
+           -khtml-user-select: none; /* Konqueror */
+             -moz-user-select: none; /* Firefox */
+              -ms-user-select: none; /* Internet Explorer/Edge */
+                  user-select: none;
+    }
+    
+    /*habilita a seleção nos campos editaveis*/
+    input, textarea {
+        -webkit-touch-callout: initial; /* iOS Safari */
+          -webkit-user-select: text; /* Chrome/Safari/Opera */
+           -khtml-user-select: text; /* Konqueror */
+             -moz-user-select: text; /* Firefox */
+              -ms-user-select: text; /* Internet Explorer/Edge */
+                  user-select: text;
+    }
+    
+    /*habilita a seleção nos campos com o atributo contenteditable*/
+    [contenteditable=true] {
+        -webkit-touch-callout: initial; /* iOS Safari */
+          -webkit-user-select: all; /* Chrome/Safari/Opera */
+           -khtml-user-select: all; /* Konqueror */
+             -moz-user-select: all; /* Firefox */
+              -ms-user-select: all; /* Internet Explorer/Edge */
+                  user-select: all;
+    }
+    </style>
+
+<script>
+    if (document.addEventListener) {
+        document.addEventListener("keydown", bloquearSource);
+    } else { //Versões antigas do IE
+        document.attachEvent("onkeydown", bloquearSource);
+    }
+    
+    function bloquearSource(e) {
+        e = e || window.event;
+    
+        var code = e.which || e.keyCode;
+    
+        if (
+            e.ctrlKey &&
+            (code == 83 || code == 85) //83 = S, 85 = U
+        ) {
+            if (e.preventDefault) {
+                e.preventDefault();
+            } else {
+                e.returnValue = false;
+            }
+    
+            return false;
+        }
+    }
+    </script>
+    
+
+    <link rel="shortcut icon" type="imagex/png" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/768px-Instagram_icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 • Página não encontrada</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+            color: #333;
+            padding: 50px;
+            margin: 0;
+        }
+        h1 {
+            font-size: 100px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>404</h1>
+    <p>Página não encontrada.</p>
+    <p class="description">Desculpe, mas a página que você está procurando não existe ou foi removida. Verifique o URL e tente novamente.</p>
+    <a href="index.html" class="button">Voltar à Página Inicial</a>
+</body>
+</html>
